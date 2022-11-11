@@ -47,7 +47,7 @@ export class CreateComponent implements OnInit {
     const product = this.productForm.getRawValue() as ProductModel;
     product.startDate = new Date();
     this.productService.registerService(product);
-    this.msg = "Cadastrado com sucesso.";
+    this.msg = "Success";
   }
 
   verifyCEP() {
