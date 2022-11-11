@@ -83,8 +83,8 @@ export class EditComponent implements OnInit {
     const receivedCEP = this.productService.getCEP(cep.cep).subscribe({
       next: (end) => {
         this.productForm.get("address")?.patchValue({
-          uf: end.uf,
           localidade: end.localidade,
+          uf: end.uf,
         })
       },
       error: (err) => (console.log(err))

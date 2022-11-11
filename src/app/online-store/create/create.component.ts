@@ -56,20 +56,17 @@ export class CreateComponent implements OnInit {
     const receivedCEP = this.productService.getCEP(cep.cep);
     receivedCEP.subscribe({
       next: (cep) => {
-        this.refresForm(cep)
+        // this.refresForm(cep)
+        this.productForm.get("address")?.patchValue({
+          uf: cep.uf,
+          localidade: cep.localidade,
+        })
       },
       error: (err) => {
         // console.log(err)
       }
     })
     // console.log(receivedCEP)
-  }
-
-  refresForm(address: ProviderAddressModel) {
-    this.productForm.get("address")?.patchValue({
-      localidade: address.localidade,
-      uf: address.uf
-    })
   }
 
   get name() { return this.productForm.get('name')!; }
