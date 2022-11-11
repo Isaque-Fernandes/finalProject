@@ -1,0 +1,128 @@
+<!-- <p>edit works!</p> -->
+
+<mat-card class="container">
+    <mat-card-content>
+        <h1>Editing of Products</h1>
+        <div class="img01">
+            <img src="../../../assets/registration.png" alt="">
+        </div>
+        <form [formGroup]="productForm" (submit)="update()">
+            <div class="floater">
+                <div class="box">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input type="text" placeholder="..." formControlName="name" matInput required>
+                        <mat-hint>Inform the name</mat-hint>
+                        <mat-error *ngIf="name.errors?.['required']">
+                            <span style="color:red;">Required field</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="box">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Category</mat-label>
+                        <mat-select formControlName="category" required="">
+                            <mat-option *ngFor="let cat of categorys" [value]="cat">
+                                {{cat}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-hint>Select a category</mat-hint>
+                        <mat-error *ngIf="category.errors?.['required']">
+                            <span style="color:red;">Required field</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="box">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Quantity</mat-label>
+                        <input type="number" formControlName="quantity" placeholder="..." matInput required>
+                        <mat-hint>Inform a quantity</mat-hint>
+                        <mat-error *ngIf="quantity.errors?.['required']">
+                            <span style="color:red;">Required field</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="box">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Factory price</mat-label>
+                        <input type="number" formControlName="factoryPrice" placeholder="..." matInput required>
+                        <mat-hint>Inform a factory price</mat-hint>
+                        <mat-error *ngIf="factoryPrice.errors?.['required']">
+                            <span style="color:red;">Required field</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="box">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Sale price</mat-label>
+                        <input type="number" formControlName="salePrice" placeholder="..." matInput required>
+                        <mat-hint>Inform a sale price</mat-hint>
+                        <mat-error *ngIf="salePrice.errors?.['required']">
+                            <span style="color:red;">Required field</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="box">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Provider</mat-label>
+                        <mat-select formControlName="provider">
+                            <mat-option *ngFor="let pro of providers" [value]="pro">
+                                {{pro}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-hint>Inform a provider</mat-hint>
+                        <mat-error *ngIf="provider.errors?.['required']">
+                            <span style="color:red;">Required field</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div formGroupName="address">
+                    <div class="box">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Provider Cep</mat-label>
+                            <input formControlName="cep" matInput (keyup)="verifyCEP()">
+                            <mat-hint>Inform the cep</mat-hint>
+                            <mat-error *ngIf="cep.errors?.['required']">
+                                <span style="color:red;">Required field</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="box">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Uf</mat-label>
+                            <input formControlName="uf" matInput>
+                            <mat-hint>Inform the cep</mat-hint>
+                            <mat-error *ngIf="uf.errors?.['required']">
+                                <span style="color:red;">Required field</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Localidade</mat-label>
+                            <input formControlName="localidade" matInput>
+                            <mat-hint>Inform the cep</mat-hint>
+                            <mat-error *ngIf="localidade.errors?.['required']">
+                                <span style="color:red;">Required field</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button mat-raised-button type="submit" [disabled]="productForm.invalid">Send</button>
+            </div>
+        </form>
+
+        <div class="msg">
+            {{ msg }}
+        </div>
+    </mat-card-content>
+</mat-card>

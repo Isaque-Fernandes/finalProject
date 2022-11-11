@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'finalProject';
+
+  constructor(private router: Router) { }
+
+  toList() {
+    this.router.navigate(["online-store/list"]);
+  }
+
+  toCreate() {
+    this.router.navigate(["online-store/create"]);
+  }
+
+  // toUpdate() {
+  //   this.router.navigate(["online-store/edit"]);
+  // }
+
 }

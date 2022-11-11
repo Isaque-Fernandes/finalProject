@@ -1,0 +1,30 @@
+.container {
+    width: 650px;
+    margin: 1% auto;
+}
+
+h1 {
+    font-weight: bolder;
+}
+
+img {
+    margin: 15px 0 0 30px;
+    width: 200px;
+}
+
+.floater {
+    width: 650px;
+}
+
+.box {
+    float: left;
+    margin-right: 2%;
+}
+
+button {
+    margin-top: 1%;
+}
+
+.msg {
+    margin-top: 1%;
+}
