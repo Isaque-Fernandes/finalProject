@@ -25,7 +25,7 @@ export class OnlineStoreService {
     private http: HttpClient,
   ) { }
 
-  getCEP(cepNumber: string): Observable<ProviderAddressModel> {
+  requestCEP(cepNumber: string): Observable<ProviderAddressModel> {
     const cep = this.http.get<ProviderAddressModel>(`http://viacep.com.br/ws/${cepNumber}/json/`);
     return cep;
   }

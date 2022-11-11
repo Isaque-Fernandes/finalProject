@@ -50,10 +50,10 @@ export class CreateComponent implements OnInit {
     this.msg = "Success";
   }
 
-  verifyCEP() {
+  insertCEP() {
     const cep = this.productForm.get('address')?.getRawValue() as ProviderAddressModel;
     // console.log(cep)
-    const receivedCEP = this.productService.getCEP(cep.cep);
+    const receivedCEP = this.productService.requestCEP(cep.cep);
     receivedCEP.subscribe({
       next: (cep) => {
         // this.refresForm(cep)

@@ -77,10 +77,10 @@ export class EditComponent implements OnInit {
     this.msg = "Success";
   }
 
-  verifyCEP() {
+  insertCEP() {
     const cep = this.productForm.get('address')?.getRawValue() as ProviderAddressModel;
     // console.log(cep)
-    const receivedCEP = this.productService.getCEP(cep.cep).subscribe({
+    const receivedCEP = this.productService.requestCEP(cep.cep).subscribe({
       next: (end) => {
         this.productForm.get("address")?.patchValue({
           localidade: end.localidade,

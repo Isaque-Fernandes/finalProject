@@ -85,7 +85,7 @@
                     <div class="box">
                         <mat-form-field appearance="fill">
                             <mat-label>Provider Cep</mat-label>
-                            <input formControlName="cep" matInput (keyup)="verifyCEP()">
+                            <input formControlName="cep" matInput (keyup)="insertCEP()">
                             <mat-hint>Inform the cep</mat-hint>
                             <mat-error *ngIf="cep.errors?.['required']">
                                 <span style="color:red;">Required field</span>
